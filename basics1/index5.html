@@ -1,0 +1,36 @@
+<!--Insert Boiler Plate code-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>React Tutorial 1</title>
+  </head>
+
+  <body>
+    <div id="app">React not rendered yet</div>
+    <script type="text/babel">
+      var reactWhatInputs = (
+        <div>
+          <h1>Header1</h1>
+          <a href="https://www.google.com" target="_blank">
+            Go to Google
+          </a>
+          <ul>
+            <li>Study</li>
+            <li>Workout</li>
+            <li>Work</li>
+            <li>Sleep</li>
+          </ul>
+        </div>
+      );
+      ReactDOM.render(reactWhatInputs, document.getElementById("app"));
+    </script>
+  </body>
+</html>

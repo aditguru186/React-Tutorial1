@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>React App 2</title>
+  </head>
+  <body>
+    <div id="demo1" style="width: 30%; left: 0">
+      React demo1 not rendered yet
+    </div>
+    <div id="demo2" style="width: 40%">React demo2 not rendered yet</div>
+    <div id="demo3" style="width: 30%; right: 0">
+      React demo3 not rendered yet
+    </div>
+    <script type="text/babel">
+      ReactDOM.render(
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+          blanditiis nisi delectus explicabo ipsam reiciendis ullam consectetur,
+          eveniet assumenda repellat voluptate magnam tempore, excepturi maiores
+          totam adipisci iste corrupti aut?
+        </p>,
+        document.getElementById("demo1")
+      );
+      ReactDOM.render(
+        <a href="https://www.google.com" target="_blank">
+          Go to Google
+        </a>,
+        document.getElementById("demo2")
+      );
+      ReactDOM.render(
+        <ul>
+          <li>Study</li>
+          <li>Workout</li>
+          <li>Work</li>
+          <li>Sleep</li>
+        </ul>,
+        document.getElementById("demo3")
+      );
+    </script>
+  </body>
+</html>
