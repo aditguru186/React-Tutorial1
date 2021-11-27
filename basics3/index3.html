@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Shapes Rendered With Styling</title>
+  </head>
+  <body>
+    <div id="app">React not rendered yet</div>
+    <script type="text/babel">
+      class Circle extends React.Component {
+        render() {
+          var redCircleStyling = {
+            height: 100,
+            width: 100,
+            backgroundColor: "red",
+            borderRadius: 50,
+          };
+          return <h1 style={redCircleStyling}>Circle</h1>;
+        }
+      }
+      class Rectangle extends React.Component {
+        render() {
+          var redRectangleStyling = {
+            height: 100,
+            width: 200,
+            backgroundColor: "red",
+          };
+          return <h1 style={redRectangleStyling}> Rectangle</h1>;
+        }
+      }
+      class Square extends React.Component {
+        render() {
+          var redSquareStyling = {
+            height: 100,
+            width: 100,
+            backgroundColor: "red",
+          };
+          return <h1 style={redSquareStyling}> Square</h1>;
+        }
+      }
+      ReactDOM.render(
+        <div>
+          <Circle />
+          <Square />
+          <Rectangle />
+        </div>,
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>
