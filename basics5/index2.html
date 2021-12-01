@@ -1,0 +1,53 @@
+<!--Insert Boiler Plate code-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Colour Spectrum</title>
+  </head>
+
+  <body>
+    <div
+      id="app"
+      style="background-color: rgb(153, 153, 153); width: 100%; height: 200%"
+    >
+      React not rendered yet
+    </div>
+    <script type="text/babel">
+      var SetColors = function (props) {
+        return <h1 style={{ color: props.color }}>{props.colorName}</h1>;
+      };
+      var ColourSpectrum = function () {
+        return (
+          <div>
+            <SetColors color="violet" colorName="Violet" />
+            <SetColors color="indigo" colorName="Indigo" />
+            <SetColors color="blue" colorName="Green" />
+            <SetColors color="yellow" colorName="Yellow" />
+            <SetColors color="orange" colorName="Orange" />
+            <SetColors color="red" colorName="Red" />
+          </div>
+        );
+      };
+      ReactDOM.render(
+        //React what,React where
+        <ColourSpectrum />,
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>
+<!-- <Violet />
+<Indigo />
+<Blue />
+<Green />
+<Yellow />
+<Orange />
+<Red /> -->
