@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+      type="text/css"
+    />
+
+    <title>Friendly Project</title>
+  </head>
+  <body>
+    <div id="friendly_app">React not rendering friendly app</div>
+    <script type="text/babel">
+      var Avatar = function () {
+        var avatarStyle = {
+          marginLeft: 20,
+          marginRight: 20,
+          height: 150,
+          width: 150,
+          borderRadius: "50%",
+        };
+        return (
+          //Render profile picture here and return
+          <div>
+            <img
+              src="https://lh3.googleusercontent.com/ogw/ADea4I5ePef4D8O2qeWpCgxtmZZvbJiA2FHu-sum2t8crf0=s192-c-mo"
+              alt="profile pic"
+              style={avatarStyle}
+            />
+          </div>
+        );
+      };
+      var UserName = function () {
+        //Render Username with proper fonts around here
+        var usernameStyle = {
+          marginLeft: 20,
+          fontSize: 25,
+          fontFamily: "Georgia",
+        };
+        return (
+          <div>
+            <h1 style={usernameStyle}>Aditya Guru</h1>
+          </div>
+        );
+      };
+      var iconStyle = { marginLeft: 40 };
+
+      var Like = function () {
+        return (
+          //Render the like image here
+          //eventually learn to add the changing of colour on click after learning about the states
+          <i className="fas fa-thumbs-up" style={iconStyle}></i>
+        );
+      };
+      var Share = function () {
+        return (
+          //Add share image pic into this
+          <i className="fas fa-share" style={iconStyle}></i>
+        );
+      };
+      var Add = function () {
+        return (
+          //Add current person icon
+          <i className="fas fa-user-plus" style={iconStyle}></i>
+        );
+      };
+      class GetConnected extends React.Component {
+        render() {
+          return (
+            <div>
+              <Like />
+              <Share />
+              <Add />
+            </div>
+          );
+        }
+      }
+      class Friendly extends React.Component {
+        render() {
+          var friendlyStyle = {
+            height: 300,
+            width: 200,
+            padding: 0,
+            backgroundColor: "#99F",
+            WebkitFilter: "drop-shadow(100px 100px 50px #555)",
+            filter: "drop-shadow(5px 5px 50px #555)",
+          };
+          return (
+            <div style={friendlyStyle}>
+              <Avatar />
+              <UserName />
+              <GetConnected />
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<Friendly />, document.getElementById("friendly_app"));
+    </script>
+  </body>
+</html>
