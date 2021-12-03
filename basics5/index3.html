@@ -21,9 +21,16 @@
       React not rendered yet
     </div>
     <script type="text/babel">
-      var SetColors = function (props) {
-        return <h1 style={{ color: props.color }}>{props.colorName}</h1>;
-      };
+      // var SetColors = function (props) {
+      //     return <h1 style={{ color: props.color }}>{props.colorName}</h1>;
+      // };
+      class SetColors extends React.Component {
+        render() {
+          return (
+            <h1 style={{ color: this.props.color }}>{this.props.colorName}</h1>
+          );
+        }
+      }
       var ColourSpectrum = function () {
         return (
           <div>

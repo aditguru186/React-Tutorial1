@@ -1,0 +1,45 @@
+<!--Insert Boiler Plate code-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Passing props</title>
+  </head>
+
+  <body>
+    <div id="app">React not rendered yet</div>
+    <script type="text/babel">
+      class RenderPerson extends React.Component {
+        render() {
+          return (
+            <div>
+              <img
+                src={this.props.user.imgName}
+                style={{ height: 100, width: 80 }}
+              />
+              <h1>{this.props.user.firstName}</h1>
+            </div>
+          );
+        }
+      }
+      var person = {
+        firstName: "Doll",
+        imgName:
+          "https://i.pinimg.com/736x/7b/ae/94/7bae9400ca28d11837d027d21e2f15e8.jpg",
+      };
+      ReactDOM.render(
+        //React element
+        <RenderPerson user={person} />,
+        //React where
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>
