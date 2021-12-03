@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+      type="text/css"
+    />
+
+    <title>Friendly Project #2</title>
+  </head>
+
+  <body>
+    <div id="friendly_app">React not rendering friendly app</div>
+    <script type="text/babel">
+      var Avatar = function (props) {
+        var avatarStyle = {
+          marginLeft: 27,
+          marginTop: 20,
+          height: 150,
+          width: 150,
+          borderRadius: "50%",
+        };
+        return (
+          //Render profile picture here and return
+          <div>
+            <img src={props.profPic} alt="profile pic" style={avatarStyle} />
+          </div>
+        );
+      };
+      var UserName = function (props) {
+        //Render Username with proper fonts around here
+        var usernameStyle = {
+          marginLeft: 20,
+          fontSize: 25,
+          fontFamily: "Georgia",
+          align: "center",
+        };
+        return (
+          <div>
+            <h1 style={usernameStyle}>{props.userName}</h1>
+          </div>
+        );
+      };
+      var iconStyle = { marginLeft: 40 };
+
+      var Like = function () {
+        return (
+          //Render the like image here
+          //eventually learn to add the changing of colour on click after learning about the states
+          <i className="fas fa-thumbs-up" style={iconStyle}></i>
+        );
+      };
+      var Share = function () {
+        return (
+          //Add share image pic into this
+          <i className="fas fa-share" style={iconStyle}></i>
+        );
+      };
+      var Add = function () {
+        return (
+          //Add current person icon
+          <i className="fas fa-user-plus" style={iconStyle}></i>
+        );
+      };
+      class GetConnected extends React.Component {
+        render() {
+          return (
+            <div>
+              <Like />
+              <Share />
+              <Add />
+            </div>
+          );
+        }
+      }
+      class Profile extends React.Component {
+        render() {
+          var profileStyle = {
+            height: 300,
+            width: 200,
+            padding: 0,
+            backgroundColor: "#99F",
+            WebkitFilter: "drop-shadow(100px 100px 50px #555)",
+            filter: "drop-shadow(5px 5px 50px #555)",
+          };
+          return (
+            <div style={profileStyle}>
+              <Avatar profPic={this.props.profPic} />
+              <UserName userName={this.props.userName} />
+              <GetConnected />
+            </div>
+          );
+        }
+      }
+      class Friendly extends React.Component {
+        render() {
+          var friendlyStyle = {
+            display: "inline-block",
+            margin: 20,
+          };
+          return (
+            <div style={friendlyStyle}>
+              <Profile
+                profPic="https://images.prismic.io/fft-rg-commun-news/af9ea950-bdad-4bbc-97b9-9f3c69f2d37c_Roger+Federer+-+Roland-Garros+2021+-+Corinne+Dubreuil+FFT.jpg?auto=compress,format"
+                userName="Roger"
+              />
+              <Profile
+                profPic="https://pbs.twimg.com/profile_images/977184857230061568/MzkdfYNC_400x400.jpg"
+                userName="Nole"
+              />
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<Friendly />, document.getElementById("friendly_app"));
+    </script>
+  </body>
+</html>
