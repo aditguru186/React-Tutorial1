@@ -1,0 +1,43 @@
+<!--Insert Boiler Plate code-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>React Tutorial 6</title>
+  </head>
+
+  <body>
+    <div id="app">React not rendered yet</div>
+    <script type="text/babel">
+      var sunnnyDays = [
+        { name: "Monday", temp: 25, id: 1 },
+        { name: "Tuesday", temp: 30, id: 2 },
+        { name: "Wednesday", temp: 25, id: 3 },
+        { name: "Thursday", temp: 35, id: 4 },
+        { name: "Friday", temp: 25, id: 5 },
+        { name: "Saturday", temp: 15, id: 6 },
+        { name: "Sunday", temp: 20, id: 7 },
+      ];
+      var DaysRender = function (props) {
+        var days = props.days;
+        var dayName = days.map(function (currentDay) {
+          return <div id={currentDay.id}>{currentDay.name}</div>;
+        });
+        return <div>{dayName}</div>;
+      };
+      ReactDOM.render(
+        //React element
+        <DaysRender days={sunnnyDays} />,
+        //React where
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>
