@@ -1,0 +1,66 @@
+<!--Insert Boiler Plate code-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Colour Spectrum</title>
+  </head>
+
+  <body>
+    <div
+      id="app"
+      style="background-color: rgb(153, 153, 153); width: 100%; height: 200%"
+    >
+      React not rendered yet
+    </div>
+    <script type="text/babel">
+      var colors = [
+        { color: "violet", colorName: "violet", id: 1 },
+        { color: "indigo", colorName: "indigo", id: 2 },
+        { color: "blue", colorName: "blue", id: 3 },
+        { color: "green", colorName: "green", id: 4 },
+        { color: "yellow", colorName: "yellow", id: 5 },
+        { color: "orange", colorName: "orange", id: 6 },
+        { color: "red", colorName: "red", id: 7 },
+      ];
+
+      class SetColors extends React.Component {
+        render() {
+          var color = this.props.colorSpectrum;
+          var colorItems = color.map(function (currentColor) {
+            var colorStyle = {
+              height: 50,
+              width: 200,
+              backgroundColor: currentColor.color,
+            };
+            return (
+              <div key={currentColor.id} style={colorStyle}>
+                {currentColor.colorName}
+              </div>
+            );
+          });
+          return <h1>{colorItems}</h1>;
+        }
+      }
+      var ColourSpectrum = function () {
+        return (
+          <div>
+            <SetColors colorSpectrum={colors} />
+          </div>
+        );
+      };
+      ReactDOM.render(
+        //React what,React where
+        <ColourSpectrum />,
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>
