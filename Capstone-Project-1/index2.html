@@ -85,6 +85,8 @@
       class Profile extends React.Component {
         render() {
           var profileStyle = {
+            display: "inline-block",
+            margin: 20,
             height: 300,
             width: 200,
             padding: 0,
@@ -103,12 +105,8 @@
       }
       class Friendly extends React.Component {
         render() {
-          var friendlyStyle = {
-            display: "inline-block",
-            margin: 20,
-          };
           return (
-            <div style={friendlyStyle}>
+            <div>
               <Profile
                 profPic="https://images.prismic.io/fft-rg-commun-news/af9ea950-bdad-4bbc-97b9-9f3c69f2d37c_Roger+Federer+-+Roland-Garros+2021+-+Corinne+Dubreuil+FFT.jpg?auto=compress,format"
                 userName="Roger"

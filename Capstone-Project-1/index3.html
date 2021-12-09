@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+      type="text/css"
+    />
+
+    <title>Friendly Project #2</title>
+  </head>
+
+  <body>
+    <div id="friendly_app">React not rendering friendly app</div>
+    <script type="text/babel">
+      var dataHogg = [
+        {
+          id: 1,
+          profPic:
+            "https://www.tennisworldusa.org/imge/109028/roger-federer-i-realized-that-i-had-won-almost-no-point-when-.jpg",
+          userName: "Roger",
+          sports: "Tennis",
+        },
+        {
+          id: 2,
+          profPic:
+            "https://pbs.twimg.com/profile_images/977184857230061568/MzkdfYNC_400x400.jpg",
+          userName: "Nole",
+          sports: "Tennis",
+        },
+        {
+          id: 3,
+          profPic:
+            "https://images-na.ssl-images-amazon.com/images/I/815A9lXuNxL.jpg",
+          userName: "Rafa",
+          sports: "Tennis",
+        },
+        {
+          id: 4,
+          profPic:
+            "https://media.news9live.com/h-upload/2021/11/10/58515-andy-murray.jpg",
+          userName: "Murray",
+          sports: "Tennis",
+        },
+        {
+          id: 5,
+          profPic:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Stan_Wawrinka_%2835355622216%29.jpg/1200px-Stan_Wawrinka_%2835355622216%29.jpg",
+          userName: "Stan",
+          sports: "Tennis",
+        },
+        {
+          id: 6,
+          profPic:
+            "https://images.news18.com/ibnlive/uploads/2021/09/cristiano-ronaldo-5.jpg",
+          userName: "Ronaldo",
+          sports: "Football",
+        },
+        {
+          id: 7,
+          profPic:
+            "https://static.toiimg.com/thumb/msid-84410730,width-1200,height-900,resizemode-4/.jpg",
+          userName: "Messi",
+          sports: "Football",
+        },
+        {
+          id: 8,
+          profPic:
+            "https://resources.premierleague.com/premierleague/photos/players/250x250/p1818.png",
+          userName: "Beckham",
+          sports: "Football",
+        },
+        {
+          id: 9,
+          profPic:
+            "https://upload.wikimedia.org/wikipedia/commons/4/43/Russia-Spain_2017_%286%29.jpg",
+          userName: "Ramos",
+          sports: "Football",
+        },
+        {
+          id: 10,
+          profPic:
+            "https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F59c18962a7ea434a34f40780%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D1237%26cropX2%3D2563%26cropY1%3D22%26cropY2%3D1349",
+          userName: "Bastian",
+          sports: "Football",
+        },
+      ];
+      var Avatar = function (props) {
+        var avatarStyle = {
+          marginLeft: 27,
+          marginTop: 20,
+          height: 150,
+          width: 150,
+          borderRadius: "50%",
+        };
+        return (
+          //Render profile picture here and return
+          <div>
+            <img src={props.profPic} alt="profile pic" style={avatarStyle} />
+          </div>
+        );
+      };
+      var UserName = function (props) {
+        //Render Username with proper fonts around here
+        var usernameStyle = {
+          marginLeft: 20,
+          fontSize: 25,
+          fontFamily: "Georgia",
+          align: "center",
+        };
+        return (
+          <div>
+            <h1 style={usernameStyle}>{props.userName}</h1>
+          </div>
+        );
+      };
+      var iconStyle = { marginLeft: 40 };
+
+      var Like = function () {
+        return (
+          //Render the like image here
+          //eventually learn to add the changing of colour on click after learning about the states
+          <i className="fas fa-thumbs-up" style={iconStyle}></i>
+        );
+      };
+      var Share = function () {
+        return (
+          //Add share image pic into this
+          <i className="fas fa-share" style={iconStyle}></i>
+        );
+      };
+      var Add = function () {
+        return (
+          //Add current person icon
+          <i className="fas fa-user-plus" style={iconStyle}></i>
+        );
+      };
+      class GetConnected extends React.Component {
+        render() {
+          return (
+            <div>
+              <Like />
+              <Share />
+              <Add />
+            </div>
+          );
+        }
+      }
+      class Profile1 extends React.Component {
+        render() {
+          var profileStyle = {
+            display: "inline-block",
+            margin: 20,
+            height: 300,
+            width: 200,
+            padding: 0,
+            backgroundColor: "#99F",
+            WebkitFilter: "drop-shadow(100px 100px 50px #555)",
+            filter: "drop-shadow(5px 5px 50px #555)",
+          };
+          return (
+            <div style={profileStyle}>
+              <Avatar profPic={this.props.profPic} />
+              <UserName userName={this.props.userName} />
+              <GetConnected />
+            </div>
+          );
+        }
+      }
+      class Profile extends React.Component {
+        render() {
+          var profileStyle = {
+            display: "inline-block",
+            margin: 20,
+            height: 300,
+            width: 200,
+            padding: 0,
+            backgroundColor: "#99F",
+            WebkitFilter: "drop-shadow(100px 100px 50px #555)",
+            filter: "drop-shadow(5px 5px 50px #555)",
+          };
+          var sportsData = this.props.sportsData;
+          var tennisPlayers = sportsData
+            .filter(function (player) {
+              return player.sports === "Tennis";
+            })
+            .map(function (player) {
+              return (
+                <div key={player.id} style={profileStyle}>
+                  <Avatar profPic={player.profPic} />
+                  <UserName profPic={player.userName} />
+                  <GetConnected />
+                </div>
+              );
+            });
+          var footballPlayers = sportsData
+            .filter(function (player) {
+              return player.sports === "Football";
+            })
+            .map(function (player) {
+              return (
+                <div key={player.id} style={profileStyle}>
+                  <Avatar profPic={player.profPic} />
+                  <UserName profPic={player.userName} />
+                  <GetConnected />
+                </div>
+              );
+            });
+          return (
+            <div>
+              <h1>Tennis Athletes</h1>
+              <div>{tennisPlayers}</div>
+              <hr />
+              <h1>Football Athletes</h1>
+              <div>{footballPlayers}</div>
+            </div>
+          );
+        }
+      }
+      class Friendly extends React.Component {
+        render() {
+          return (
+            <div>
+              <Profile sportsData={dataHogg} />
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<Friendly />, document.getElementById("friendly_app"));
+    </script>
+  </body>
+</html>
