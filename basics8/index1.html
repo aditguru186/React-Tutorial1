@@ -1,0 +1,60 @@
+<!--Insert Boiler Plate code-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>React Tutorial 6</title>
+  </head>
+
+  <body>
+    <div id="app">React not rendered yet</div>
+    <script type="text/babel">
+      class UpdateAge extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            age: "Age will be displayed here",
+          };
+        }
+        onChildButtonClick() {
+          this.setState({ age: "Child age is 6 years old" });
+          this.onChildButtonClick = this.onChildButtonClick.bind(this);
+        }
+        // onAdultButtonClick() {
+        //   this.setState({ age: "Adult age is 18 years old" });
+        // }
+        // onSeniorButtonClick() {
+        //   this.setState({ age: "Senior age is 60 years old" });
+        // }
+        render() {
+          return (
+            <div>
+              <h1>Various Age will be displayed here</h1>
+              <h2>{this.state.age}</h2>
+              <button onClick={this.onChildButtonClick()}>Child Age</button>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(
+        //React element
+        <UpdateAge />,
+        //React where
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>
+<!-- <button onClick={this.onAdultButtonClick.bind(this)}>
+  Adult Age
+</button>
+<button onClick={()=> this.onSeniorButtonClick()}>
+  Senior Age
+</button> -->
