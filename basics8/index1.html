@@ -22,23 +22,30 @@
           this.state = {
             age: "Age will be displayed here",
           };
+          this.onChildButtonClick = this.onChildButtonClick.bind(this);
         }
         onChildButtonClick() {
           this.setState({ age: "Child age is 6 years old" });
-          this.onChildButtonClick = this.onChildButtonClick.bind(this);
         }
-        // onAdultButtonClick() {
-        //   this.setState({ age: "Adult age is 18 years old" });
-        // }
-        // onSeniorButtonClick() {
-        //   this.setState({ age: "Senior age is 60 years old" });
-        // }
+        onAdultButtonClick() {
+          this.setState({ age: "Adult age is 18 years old" });
+        }
+        onSeniorButtonClick() {
+          this.setState({ age: "Senior age is 60 years old" });
+          this.onSeniorButtonClick = this.onSeniorButtonClick.bind(this);
+        }
         render() {
           return (
             <div>
               <h1>Various Age will be displayed here</h1>
               <h2>{this.state.age}</h2>
-              <button onClick={this.onChildButtonClick()}>Child Age</button>
+              <button onClick={this.onChildButtonClick}>Child Age</button>
+              <button onClick={this.onAdultButtonClick.bind(this)}>
+                Adult Age
+              </button>
+              <button onClick={() => this.onSeniorButtonClick()}>
+                Senior Age
+              </button>
             </div>
           );
         }
@@ -52,9 +59,4 @@
     </script>
   </body>
 </html>
-<!-- <button onClick={this.onAdultButtonClick.bind(this)}>
-  Adult Age
-</button>
-<button onClick={()=> this.onSeniorButtonClick()}>
-  Senior Age
-</button> -->
+<!--  -->
