@@ -14,7 +14,12 @@
   </head>
 
   <body>
-    <div id="app">React not rendered yet</div>
+    <div
+      id="app"
+      style="background-color: rgba(104, 161, 147, 0.315); height: 1000px"
+    >
+      React not rendered yet
+    </div>
     <script type="text/babel">
       var foodDump = [
         {
@@ -36,6 +41,12 @@
           name: "Brownie",
           dp:
             "http://www.theterracekitchen.in/wp-content/uploads/2019/07/034.-Sizzing-Brownie_545x545-500x500.png",
+          count: 0,
+        },
+        {
+          id: 4,
+          name: "Burger",
+          dp: "https://static.toiimg.com/photo/79811787.cms",
           count: 0,
         },
       ];
@@ -62,6 +73,7 @@
             pizzaCount: 0,
             crossaintCount: 0,
             brownieCount: 0,
+            burgerCount: 0,
           };
         }
 
@@ -81,6 +93,11 @@
               brownieCount: this.state.brownieCount + 1,
             });
             console.log(args + " State : " + this.state.brownieCount);
+          } else if (args == "Burger") {
+            this.setState({
+              burgerCount: this.state.burgerCount + 1,
+            });
+            console.log(args + " State : " + this.state.burgerCount);
           }
         }
         downVoteHandle(args) {
@@ -99,6 +116,11 @@
               brownieCount: this.state.brownieCount - 1,
             });
             console.log(args + " State : " + this.state.brownieCount);
+          } else if (args == "Burger") {
+            this.setState({
+              burgerCount: this.state.burgerCount - 1,
+            });
+            console.log(args + " State : " + this.state.burgerCount);
           }
         }
         render() {
@@ -108,7 +130,7 @@
             height: 400,
             width: 300,
             padding: 0,
-            backgroundColor: "#99C",
+            backgroundColor: "#F3B9AC",
             WebkitFilter: "drop-shadow(100px 100px 50px #555)",
             filter: "drop-shadow(5px 5px 50px #555)",
           };
@@ -121,6 +143,8 @@
               stateCount = this.state.crossaintCount;
             } else if (currentFood.name == "Brownie") {
               stateCount = this.state.brownieCount;
+            } else if (currentFood.name == "Burger") {
+              stateCount = this.state.burgerCount;
             }
             return (
               <div style={menuStyle} key={currentFood.id}>
