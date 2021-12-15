@@ -1,0 +1,118 @@
+<!--Insert Boiler Plate code-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <!--React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM LIbrary-->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!--Babel Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>React Tutorial 6</title>
+  </head>
+
+  <body>
+    <div id="app">React not rendered yet</div>
+    <script type="text/babel">
+      var foodDump = [
+        {
+          id: 1,
+          name: "Pizza",
+          dp:
+            "https://cdn.britannica.com/08/177308-050-94D9D6BE/Food-Pizza-Basil-Tomato.jpg",
+          count: 0,
+        },
+        {
+          id: 2,
+          name: "Crossaint",
+          dp:
+            "https://static.toiimg.com/thumb/61912818.cms?width=1200&height=900",
+          count: 0,
+        },
+        {
+          id: 3,
+          name: "Brownie",
+          dp:
+            "http://www.theterracekitchen.in/wp-content/uploads/2019/07/034.-Sizzing-Brownie_545x545-500x500.png",
+          count: 0,
+        },
+      ];
+      const DisplayPicture = function (props) {
+        var dpStyle = {
+          height: 200,
+          width: 150,
+          margin: 20,
+          top: 20,
+        };
+        return <img style={dpStyle} src={props.imgUrl}></img>;
+      };
+      const DisplayName = function (props) {
+        var nameStyle = {
+          textAlign: "center",
+        };
+        return <h1 style={nameStyle}>{props.name}</h1>;
+      };
+      class CafeMenu extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            pizzaCount: 0,
+            crossaintCount: 0,
+            brownieCount: 0,
+          };
+        }
+        // onIncrementClick() {
+        //   console.log(this);
+        //   this.onIncrementClick = this.onIncrementClick.bind(this);
+        // }
+        onPizzaClick() {
+          //   this.setState({
+          //     pizzaCount: 1,
+          //   });
+          console.log("State : " + this);
+          this.onPizzaClick = this.onPizzaClick.bind(this);
+        }
+        onCrossaintClick() {}
+        onBrownieClick() {}
+        render() {
+          var menuStyle = {
+            display: "inline-block",
+            margin: 20,
+            height: 400,
+            width: 200,
+            padding: 0,
+            backgroundColor: "#99F",
+            WebkitFilter: "drop-shadow(100px 100px 50px #555)",
+            filter: "drop-shadow(5px 5px 50px #555)",
+          };
+          var foodDumpData = this.props.foodDump;
+          console.log("Food Data dump : " + foodDumpData);
+          var dumpData = foodDumpData.map(function (currentFood) {
+            return (
+              <div style={menuStyle} key={currentFood.id}>
+                <DisplayPicture imgUrl={currentFood.dp} />
+                <DisplayName name={currentFood.name} />
+                <button
+                  onClick={this.onPizzaClick()}
+                  style={{ marginLeft: "40%" }}
+                >
+                  +1
+                </button>
+              </div>
+            );
+          });
+          return <div>{dumpData}</div>;
+        }
+      }
+
+      ReactDOM.render(
+        //React element
+        <CafeMenu foodDump={foodDump} />,
+        //React where
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>
