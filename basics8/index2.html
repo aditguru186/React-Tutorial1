@@ -83,6 +83,24 @@
             console.log(args + " State : " + this.state.brownieCount);
           }
         }
+        downVoteHandle(args) {
+          if (args == "Pizza") {
+            this.setState({
+              pizzaCount: this.state.pizzaCount - 1,
+            });
+            console.log(args + " State : " + this.state.pizzaCount);
+          } else if (args == "Crossaint") {
+            this.setState({
+              crossaintCount: this.state.crossaintCount - 1,
+            });
+            console.log(args + " State : " + this.state.crossaintCount);
+          } else if (args == "Brownie") {
+            this.setState({
+              brownieCount: this.state.brownieCount - 1,
+            });
+            console.log(args + " State : " + this.state.brownieCount);
+          }
+        }
         render() {
           var menuStyle = {
             display: "inline-block",
@@ -108,12 +126,20 @@
               <div style={menuStyle} key={currentFood.id}>
                 <DisplayPicture imgUrl={currentFood.dp} />
                 <DisplayName name={currentFood.name} />
-                <button
-                  style={{ marginLeft: "45%" }}
-                  onClick={() => this.upVoteHandle(currentFood.name)}
-                >
-                  +1
-                </button>
+                <div style={{ display: "inline" }}>
+                  <button
+                    style={{ marginLeft: "45%" }}
+                    onClick={() => this.upVoteHandle(currentFood.name)}
+                  >
+                    +1
+                  </button>
+                  <button
+                    style={{ marginLeft: "45%" }}
+                    onClick={() => this.downVoteHandle(currentFood.name)}
+                  >
+                    -1
+                  </button>
+                </div>
                 <h4>
                   Number of votes : <b>{stateCount}</b>
                 </h4>
