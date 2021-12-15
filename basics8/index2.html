@@ -42,8 +42,9 @@
       const DisplayPicture = function (props) {
         var dpStyle = {
           height: 200,
-          width: 150,
-          margin: 20,
+          width: 200,
+          marginLeft: 50,
+          marginTop: 20,
           top: 20,
         };
         return <img style={dpStyle} src={props.imgUrl}></img>;
@@ -63,43 +64,59 @@
             brownieCount: 0,
           };
         }
-        // onIncrementClick() {
-        //   console.log(this);
-        //   this.onIncrementClick = this.onIncrementClick.bind(this);
-        // }
-        onPizzaClick() {
-          //   this.setState({
-          //     pizzaCount: 1,
-          //   });
-          console.log("State : " + this);
-          this.onPizzaClick = this.onPizzaClick.bind(this);
+
+        upVoteHandle(args) {
+          if (args == "Pizza") {
+            this.setState({
+              pizzaCount: this.state.pizzaCount + 1,
+            });
+            console.log(args + " State : " + this.state.pizzaCount);
+          } else if (args == "Crossaint") {
+            this.setState({
+              crossaintCount: this.state.crossaintCount + 1,
+            });
+            console.log(args + " State : " + this.state.crossaintCount);
+          } else if (args == "Brownie") {
+            this.setState({
+              brownieCount: this.state.brownieCount + 1,
+            });
+            console.log(args + " State : " + this.state.brownieCount);
+          }
         }
-        onCrossaintClick() {}
-        onBrownieClick() {}
         render() {
           var menuStyle = {
             display: "inline-block",
             margin: 20,
             height: 400,
-            width: 200,
+            width: 300,
             padding: 0,
-            backgroundColor: "#99F",
+            backgroundColor: "#99C",
             WebkitFilter: "drop-shadow(100px 100px 50px #555)",
             filter: "drop-shadow(5px 5px 50px #555)",
           };
           var foodDumpData = this.props.foodDump;
-          console.log("Food Data dump : " + foodDumpData);
-          var dumpData = foodDumpData.map(function (currentFood) {
+          var dumpData = foodDumpData.map((currentFood) => {
+            var stateCount = 0;
+            if (currentFood.name == "Pizza") {
+              stateCount = this.state.pizzaCount;
+            } else if (currentFood.name == "Crossaint") {
+              stateCount = this.state.crossaintCount;
+            } else if (currentFood.name == "Brownie") {
+              stateCount = this.state.brownieCount;
+            }
             return (
               <div style={menuStyle} key={currentFood.id}>
                 <DisplayPicture imgUrl={currentFood.dp} />
                 <DisplayName name={currentFood.name} />
                 <button
-                  onClick={this.onPizzaClick()}
-                  style={{ marginLeft: "40%" }}
+                  style={{ marginLeft: "45%" }}
+                  onClick={() => this.upVoteHandle(currentFood.name)}
                 >
                   +1
                 </button>
+                <h4>
+                  Number of votes : <b>{stateCount}</b>
+                </h4>
               </div>
             );
           });
@@ -116,3 +133,6 @@
     </script>
   </body>
 </html>
+<!-- <button onClick={this.onPizzaClick} style={{ marginLeft: "45%" }}>
+  +1
+</button> -->
